@@ -25,31 +25,6 @@ $games = [
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Tracker</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 600px;
-            margin: 50px auto;
-            padding: 20px;
-        }
-        .game {
-            border: 1px solid #ddd;
-            padding: 15px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-            background-color: #f9f9f9;
-        }
-        .game h2 {
-            margin-top: 0;
-        }
-        .game-info {
-            margin: 10px 0;
-        }
-        .label {
-            font-weight: bold;
-            color: #333;
-        }
-    </style>
 </head>
 <body>
     <h1>Mijn Game Tracker</h1>
