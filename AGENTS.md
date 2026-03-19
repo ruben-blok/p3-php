@@ -4,5 +4,3 @@ Workspace rules:
 - No css
 - Dont make code comments
 - Only implement exactly what is specified in the prompt. Nothing more.
-
-When done with a opdracht: commit & push using this command: `git add . && git commit -m "opdracht" && git push`
