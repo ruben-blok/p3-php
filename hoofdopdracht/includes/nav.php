@@ -1,4 +1,4 @@
 <nav>
-    <a href="pages/home.php">Home</a>
-    <a href="pages/toevoegen.php">Toevoegen</a>
+    <a href="home.php">Home</a>
+    <a href="toevoegen.php">Toevoegen</a>
 </nav>
