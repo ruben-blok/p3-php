@@ -1,36 +1,25 @@
 <?php include "../includes/header.php"; ?>
 <?php include "../includes/nav.php"; ?>
+<?php include "../includes/db.php"; ?>
+
+<?php
+$stmt = $pdo->prepare("SELECT * FROM games");
+$stmt->execute();
+$games = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
 
 <h1>Mijn Games</h1>
 
-<?php
-
-$games = [
-    [
-        "titel" => "The Witcher 3",
-        "platform" => "PC",
-        "status" => "Bezig"
-    ],
-    [
-        "titel" => "Zelda: Tears of the Kingdom",
-        "platform" => "Switch",
-        "status" => "Gelezen"
-    ],
-    [
-        "titel" => "Elden Ring",
-        "platform" => "PS5",
-        "status" => "Nog te spelen"
-    ]
-];
-
-?>
-
+<?php if (count($games) > 0): ?>
 <ul>
 <?php foreach ($games as $game): ?>
     <li>
-        <strong><?= $game["titel"] ?></strong> - <?= $game["platform"] ?> (<?= $game["status"] ?>)
+        <strong><?= $game["title"] ?></strong> - &euro;<?= $game["price"] ?> (<?= $game["release_year"] ?>)
     </li>
 <?php endforeach; ?>
 </ul>
+<?php else: ?>
+    <p>Er zijn nog geen games toegevoegd.</p>
+<?php endif; ?>
 
 <?php include "../includes/footer.php"; ?>

@@ -4,3 +4,5 @@ Workspace rules:
 - No css
 - Dont make code comments
 - Only implement exactly what is specified in the prompt. Nothing more.
+- DB name is: p3_games and is initialized with /games.sql
+- Dont edit games.sql

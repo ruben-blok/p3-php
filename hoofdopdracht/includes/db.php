@@ -1,7 +1,7 @@
 <?php
 
 $host = "localhost";
-$dbname = "p3_app";
+$dbname = "p3_games";
 $username = "root";
 $password = "";
 
