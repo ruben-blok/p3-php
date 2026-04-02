@@ -1,9 +1,10 @@
 <?php
 $errors = [];
-$success = false;
 $title = "";
 $price = "";
 $release_year = "";
+
+include "../includes/db.php";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $title = trim($_POST["title"] ?? "");
@@ -31,7 +32,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     if (empty($errors)) {
-        $success = true;
+        $stmt = $pdo->prepare("INSERT INTO games (title, price, release_year) VALUES (:title, :price, :release_year)");
+        $stmt->execute([
+            ":title" => $title,
+            ":price" => $price,
+            ":release_year" => $release_year,
+        ]);
+
+        header("Location: home.php");
+        exit();
     }
 }
 ?>
@@ -47,12 +56,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <li><?= htmlspecialchars($error) ?></li>
             <?php endforeach; ?>
         </ul>
-    </div>
-<?php endif; ?>
-
-<?php if ($success): ?>
-    <div style="color: green; margin-bottom: 15px;">
-        <p>Game succesvol toegevoegd!</p>
     </div>
 <?php endif; ?>
 
