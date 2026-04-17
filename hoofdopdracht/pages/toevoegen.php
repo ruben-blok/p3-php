@@ -1,9 +1,11 @@
 <?php
 session_start();
-$errors = [];
-$title = "";
-$price = "";
-$release_year = "";
+$errors = isset($_SESSION['errors']) ? $_SESSION['errors'] : [];
+$title = isset($_SESSION['old']['title']) ? $_SESSION['old']['title'] : "";
+$price = isset($_SESSION['old']['price']) ? $_SESSION['old']['price'] : "";
+$release_year = isset($_SESSION['old']['release_year']) ? $_SESSION['old']['release_year'] : "";
+
+unset($_SESSION['errors'], $_SESSION['old']);
 
 include "../includes/db.php";
 
@@ -44,7 +46,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         header("Location: home.php");
         exit();
     } else {
-        $_SESSION['error'] = implode(", ", $errors);
+        $_SESSION['errors'] = $errors;
+        $_SESSION['old'] = [
+            'title' => $title,
+            'price' => $price,
+            'release_year' => $release_year
+        ];
         header("Location: toevoegen.php");
         exit();
     }
