@@ -1,4 +1,5 @@
 <?php
+session_start();
 $errors = [];
 $title = "";
 $price = "";
@@ -39,7 +40,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             ":release_year" => $release_year,
         ]);
 
+        $_SESSION['success'] = "Game toegevoegd!";
         header("Location: home.php");
+        exit();
+    } else {
+        $_SESSION['error'] = implode(", ", $errors);
+        header("Location: toevoegen.php");
         exit();
     }
 }
