@@ -30,6 +30,7 @@ $games = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <?php foreach ($games as $game): ?>
     <li>
         <strong><?= $game["title"] ?></strong> - &euro;<?= $game["price"] ?> (<?= $game["release_year"] ?>)
+        <a href="../edit.php?id=<?= $game["id"] ?>">Bewerken</a>
     </li>
 <?php endforeach; ?>
 </ul>
