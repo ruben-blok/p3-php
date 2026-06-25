@@ -1,8 +1,6 @@
 <?php
 session_start();
-include "includes/header.php";
-include "includes/nav.php";
-include "includes/db.php";
+include "../includes/db.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = $_POST['id'];
@@ -13,7 +11,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $pdo->prepare("UPDATE games SET title = ?, price = ?, release_year = ? WHERE id = ?");
     $stmt->execute([$title, $price, $release_year, $id]);
 
-    header("Location: index.php");
+    $_SESSION['success'] = "Game succesvol bewerkt.";
+    header("Location: home.php");
     exit;
 }
 
@@ -26,6 +25,9 @@ if (isset($_GET['id'])) {
 } else {
     $item = null;
 }
+
+include "../includes/header.php";
+include "../includes/nav.php";
 ?>
 
 <h1>Game Bewerken</h1>
@@ -53,4 +55,4 @@ if (isset($_GET['id'])) {
     <p>Item niet gevonden.</p>
 <?php endif; ?>
 
-<?php include "includes/footer.php"; ?>
+<?php include "../includes/footer.php"; ?>
