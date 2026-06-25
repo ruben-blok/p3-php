@@ -4,6 +4,19 @@ include "includes/header.php";
 include "includes/nav.php";
 include "includes/db.php";
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $id = $_POST['id'];
+    $title = $_POST['title'];
+    $price = $_POST['price'];
+    $release_year = $_POST['release_year'];
+
+    $stmt = $pdo->prepare("UPDATE games SET title = ?, price = ?, release_year = ? WHERE id = ?");
+    $stmt->execute([$title, $price, $release_year, $id]);
+
+    header("Location: index.php");
+    exit;
+}
+
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
@@ -19,6 +32,7 @@ if (isset($_GET['id'])) {
 
 <?php if ($item): ?>
     <form method="POST" action="">
+        <input type="hidden" name="id" value="<?= $item['id'] ?>">
         <div>
             <label for="title">Titel:</label>
             <input type="text" id="title" name="title" value="<?= htmlspecialchars($item['title']) ?>">
