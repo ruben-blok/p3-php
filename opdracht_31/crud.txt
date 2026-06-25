@@ -1,0 +1,19 @@
+CRUD - Create, Read, Update, Delete
+
+Create (data toevoegen):
+- hoofdopdracht/pages/toevoegen.php voegt nieuwe games toe met INSERT INTO.
+
+Read (data ophalen):
+- hoofdopdracht/pages/home.php haalt alle games op met SELECT * FROM games.
+
+Update (data aanpassen):
+- hoofdopdracht/edit.php past bestaande games aan met UPDATE games SET.
+
+Delete (data verwijderen):
+- hoofdopdracht/delete.php verwijdert games met DELETE FROM games WHERE.
+
+Waarom is het handig om deze onderdelen te herkennen?
+Het helpt je om de structuur van een applicatie te begrijpen en je weet precies waar je code moet zoeken of aanpassen.
+
+Werk je applicatie nog als een van deze ontbreekt?
+Nee, een applicatie is niet compleet als een van de vier ontbreekt — je kunt dan niet volledig met data werken.
