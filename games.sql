@@ -28,19 +28,21 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `games` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(100) NOT NULL,
   `price` int(10) NOT NULL,
-  `release_year` int(11) NOT NULL
+  `release_year` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `games`
 --
 
-INSERT INTO `games` (`title`, `price`, `release_year`) VALUES
-('Minecraft', 30, 2009),
-('Snake', 5, 1998),
-('Roblox', 10, 2006);
+INSERT INTO `games` (`id`, `title`, `price`, `release_year`) VALUES
+(1, 'Minecraft', 30, 2009),
+(2, 'Snake', 5, 1998),
+(3, 'Roblox', 10, 2006);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
