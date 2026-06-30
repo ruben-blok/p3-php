@@ -1,0 +1,14 @@
+Users Tabel - Kolommen
+======================
+
+1. id
+   Soort data: INT (geheel getal), auto_increment
+   Waarom nodig: Elke gebruiker moet een uniek identificatienummer hebben. Het ID wordt gebruikt om gebruikers te herkennen in de database, zelfs als twee gebruikers dezelfde gebruikersnaam hebben. Het wordt ook gebruikt om relaties te leggen met andere tabellen.
+
+2. username
+   Soort data: VARCHAR(255) (tekst, max 255 tekens)
+   Waarom nodig: Dit is de naam die de gebruiker ziet wanneer hij is ingelogd. De gebruikersnaam wordt gebruikt om de gebruiker te identificeren bij het inloggen.
+
+3. password
+   Soort data: VARCHAR(255) (tekst, max 255 tekens)
+   Waarom nodig: Het wachtwoord wordt opgeslagen om te controleren of de gebruiker de juiste inloggegevens heeft. We slaan het wachtwoord NIET op als normale tekst op, maar als een gehashte versie (bijvoorbeeld met bcrypt). Dit is belangrijk voor de veiligheid. Als iemand toegang krijgt tot de database, kan hij niet zomaar de wachtwoorden lezen. We gebruiken password_hash() om het wachtwoord te versleutelen en password_verify() om het te controleren.
