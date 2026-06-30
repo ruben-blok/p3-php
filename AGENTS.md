@@ -6,3 +6,4 @@ Workspace rules:
 - Only implement exactly what is specified in the prompt. Nothing more.
 - DB name is: p3_games and is initialized with /games.sql
 - Dont edit games.sql
+- Always take a screenshot with Chrome headless and save it in the opdracht folder
