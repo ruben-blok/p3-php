@@ -17,8 +17,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if ($user && password_verify($password, $user['password'])) {
         $_SESSION['user'] = $user['username'];
-        $bericht = "Succesvol ingelogd!";
-        $berichtKleur = "green";
+        header("Location: home.php");
+        exit;
     } else {
         $bericht = "Foutief gebruikersnaam of wachtwoord.";
         $berichtKleur = "red";
