@@ -1,5 +1,11 @@
 <?php
 session_start();
+
+if (!isset($_SESSION['user'])) {
+    header("Location: login.php");
+    exit;
+}
+
 $errors = isset($_SESSION['errors']) ? $_SESSION['errors'] : [];
 $title = isset($_SESSION['old']['title']) ? $_SESSION['old']['title'] : "";
 $price = isset($_SESSION['old']['price']) ? $_SESSION['old']['price'] : "";
