@@ -1,0 +1,19 @@
+Login flow - uitleg in eigen woorden
+
+1. Gebruiker vult het formulier in
+De gebruiker opent de loginpagina en typed zijn e-mailadres of gebruikersnaam en wachtwoord in de bijbehorende velden. Daarna klikt hij op de "Inloggen"-knop.
+
+2. Formulierdata wordt verstuurd naar de server
+De browser verzendt de ingevulde gegevens (gebruikersnaam + wachtwoord) via een HTTP POST-verzoek naar de server. Het wachtwoord wordt meestal nog encrypted (via HTTPS) verstuurd zodat het onderweg niet te lezen is.
+
+3. Server controleert de gegevens
+Op de server wordt de gebruikersnaam gezocht in de database. Daarna wordt het wachtwoord vergeleken met het opgeslagen wachtwoord (meestal een hash, dus nooit in plain text). Alleen als beide overeenkomen, wordt de gebruiker als ingelogd beschouwd.
+
+4. Server maakt een sessie aan
+Als de login succesvol is, maakt de server een sessie (of een token) aan. Dit geeft aan dat de gebruiker nu ingelogd is. De gebruiker wordt doorverwezen naar zijn eigen dashboard of homepage. Bij een mislukte login krijgt hij een foutmelding te zien.
+
+Waar wordt het wachtwoord gecontroleerd?
+Op de server. De database bevat alleen de hash van het wachtwoord, dus de echte controle vindt plaats in de server-side code (bijv. PHP), niet in de browser of in de HTML-pagina.
+
+Waarom is dit server-side logica?
+Omdat de browser van een gebruiker altijd te manipuleren is. Iemand kan bijvoorbeeld de HTML of JavaScript aanpassen om te doen alsof hij ingelogd is. Daarom mag de controle nooit in de browser plaatsvinden, maar altijd op de server waar de gebruiker geen toegang toe heeft. Daarnaast staat de database met alle gebruikersgegevens ook op de server.
